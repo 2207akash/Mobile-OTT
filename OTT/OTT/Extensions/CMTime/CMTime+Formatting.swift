@@ -8,7 +8,8 @@
 import AVFoundation
 
 extension CMTime {
-    func formattedTime() -> String {
+    
+    func formattedTimeForVideoDetailPage() -> String {
         let totalSeconds = CMTimeGetSeconds(self)
         guard !totalSeconds.isNaN else { return "0s" }
 
@@ -27,4 +28,20 @@ extension CMTime {
 
         return formattedString.trimmingCharacters(in: .whitespaces)
     }
+    
+    func formattedTimeForPlayerSeeker() -> String {
+        let totalSeconds = CMTimeGetSeconds(self)
+        guard !totalSeconds.isNaN else { return "0s" }
+
+        let hours = Int(totalSeconds) / 3600
+        let minutes = (Int(totalSeconds) % 3600) / 60
+        let seconds = Int(totalSeconds) % 60
+        
+        if hours > 0 {
+            return String(format: "%i:%02i:%02i", hours, minutes, seconds)
+        } else {
+            return String(format: "%02i:%02i", minutes, seconds)
+        }
+    }
+    
 }

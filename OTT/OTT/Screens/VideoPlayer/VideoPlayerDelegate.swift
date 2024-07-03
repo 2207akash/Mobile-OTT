@@ -7,15 +7,6 @@
 
 import Foundation
 
-enum VideoPlayerAction {
-    case prevTapped
-    case nextTapped
-    case playTapped
-    case pauseTapped
-    case fullScreenTapped
-}
-
-
 protocol VideoPlayerDelegate {
     func playPreviousVideoTapped()
     func playNextVideoTapped()

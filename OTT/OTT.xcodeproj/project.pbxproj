@@ -296,6 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				75473F6D2C3043F3000BF1B1 /* VideoPlayer */,
+				752C75A52C30B2EB00AFCA9B /* VideoDetailPage */,
 				75473EC02C2FD450000BF1B1 /* Home */,
 				75473EB02C2F5D3F000BF1B1 /* Login */,
 			);
@@ -315,7 +316,6 @@
 			isa = PBXGroup;
 			children = (
 				752C75A92C30C14700AFCA9B /* JSON */,
-				752C75A52C30B2EB00AFCA9B /* VideoDetailPage */,
 				75473F512C303958000BF1B1 /* Models */,
 				75473F552C304152000BF1B1 /* Cells */,
 				75473EC32C2FD5A0000BF1B1 /* HomeVC.swift */,

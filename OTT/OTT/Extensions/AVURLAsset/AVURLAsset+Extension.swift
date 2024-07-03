@@ -15,7 +15,7 @@ extension AVURLAsset {
             let status = self.statusOfValue(forKey: "duration", error: &error)
             switch status {
             case .loaded:
-                let duration = self.duration.formattedTime()
+                let duration = self.duration.formattedTimeForVideoDetailPage()
                 DispatchQueue.main.async {
                     completion(duration)
                 }

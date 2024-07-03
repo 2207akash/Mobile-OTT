@@ -18,6 +18,10 @@ class VideoPlayerVC: UIViewController {
     @IBOutlet weak var prevBtn: UIButton!
     @IBOutlet weak var playPauseBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var fullScreenBtn: UIButton!
+    @IBOutlet weak var timeElapsedLabel: UILabel!
+    @IBOutlet weak var totalTimeLabel: UILabel!
+    @IBOutlet weak var seekSlider: UISlider!
     
     // MARK: Initializers
     var video: Video?
@@ -36,6 +40,18 @@ class VideoPlayerVC: UIViewController {
             } else {
                 playPauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
                 player.pause()
+            }
+        }
+    }
+    
+    private var isFullScreen = false {
+        didSet {
+            if isFullScreen {
+                fullScreenBtn.setImage(UIImage(systemName: "arrow.up.right.and.arrow.down.left"), for: .normal)
+                Utility.lockOrientation(.all, andRotateTo: .landscapeLeft)
+            } else {
+                fullScreenBtn.setImage(UIImage(systemName: "arrow.up.left.and.arrow.down.right"), for: .normal)
+                Utility.lockOrientation(.all, andRotateTo: .portrait)
             }
         }
     }
@@ -101,9 +117,17 @@ class VideoPlayerVC: UIViewController {
         delegate?.playNextVideoTapped()
     }
     
+    @IBAction func seekSliderValueChanged(_ sender: UISlider) {
+        player.seek(to: CMTimeMake(value: Int64(sender.value*1000), timescale: 1000))
+    }
+    
+    @IBAction func fullScreenBtnTapped(_ sender: Any) {
+        isFullScreen = !isFullScreen
+    }
 }
 
 
+// MARK: UI updates
 extension VideoPlayerVC {
     
     private func setupUI() {
@@ -124,6 +148,10 @@ extension VideoPlayerVC {
         }
         
         player = AVPlayer(url: videoURL)
+        
+        player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
+        updateElapsedTimeObserver()
+        
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.videoGravity = .resizeAspect
         
@@ -143,14 +171,24 @@ extension VideoPlayerVC {
 }
 
 
+// MARK: Manage Seeker
 extension VideoPlayerVC {
     
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .landscape
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "duration", let duration = player.currentItem?.duration, duration.seconds > 0.0 {
+            self.totalTimeLabel.text = duration.formattedTimeForPlayerSeeker()
+        }
     }
     
-    override var shouldAutorotate: Bool {
-        return true
+    private func updateElapsedTimeObserver() {
+        let updateInterval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        _ = player.addPeriodicTimeObserver(forInterval: updateInterval, queue: DispatchQueue.main, using: { [weak self] time in
+            guard let currentTime = self?.player.currentItem else { return }
+            self?.seekSlider.maximumValue = Float(currentTime.duration.seconds)
+            self?.seekSlider.minimumValue = 0
+            self?.seekSlider.value = Float(currentTime.currentTime().seconds)
+            self?.timeElapsedLabel.text = currentTime.currentTime().formattedTimeForPlayerSeeker()
+        })
     }
     
 }
