@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeVideoFeaturedSectionCell" id="gTV-IL-0wX" customClass="HomeVideoFeaturedSectionCell" customModule="OTT" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="220"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="220"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1bS-sd-BzM" customClass="FSPagerView" customModule="OTT" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="180"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="gTV-IL-0wX" id="WSu-hU-xfJ"/>
+                            <outlet property="delegate" destination="gTV-IL-0wX" id="Vq4-jl-bLk"/>
+                        </connections>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m4X-wF-rEe" customClass="FSPageControl" customModule="OTT" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="190" width="393" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="sve-YW-5uP"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="1bS-sd-BzM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="2Kc-Uc-H9P"/>
+                <constraint firstItem="m4X-wF-rEe" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="69r-9i-u2M"/>
+                <constraint firstItem="m4X-wF-rEe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="JOz-rm-pCC"/>
+                <constraint firstItem="m4X-wF-rEe" firstAttribute="top" secondItem="1bS-sd-BzM" secondAttribute="bottom" constant="10" id="Jmt-Q3-2EN"/>
+                <constraint firstItem="1bS-sd-BzM" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="XUW-Ie-2FA"/>
+                <constraint firstItem="1bS-sd-BzM" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="ikz-5x-gLL"/>
+                <constraint firstAttribute="bottom" secondItem="m4X-wF-rEe" secondAttribute="bottom" id="lg0-vH-rXa"/>
+            </constraints>
+            <size key="customSize" width="328" height="181"/>
+            <connections>
+                <outlet property="pageControl" destination="m4X-wF-rEe" id="sOw-8B-lSg"/>
+                <outlet property="pagerView" destination="1bS-sd-BzM" id="tNG-5Q-8aY"/>
+            </connections>
+            <point key="canvasLocation" x="118.32061068702289" y="65.492957746478879"/>
+        </collectionViewCell>
+    </objects>
+</document>
