@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol VideoPlayerDelegate {
+protocol VideoPlayerDelegate: NSObject {
     func playPreviousVideoTapped()
     func playNextVideoTapped()
 }

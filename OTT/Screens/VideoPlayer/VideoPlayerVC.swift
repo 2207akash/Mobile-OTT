@@ -25,7 +25,16 @@ class VideoPlayerVC: UIViewController {
     
     // MARK: Initializers
     var video: Video?
-    var delegate: VideoPlayerDelegate?
+    weak var delegate: VideoPlayerDelegate?
+    
+    deinit {
+        // Remove observers
+        player.currentItem?.removeObserver(self, forKeyPath: "duration")
+        
+        // Release player and layer (if necessary)
+        player = nil
+        playerLayer = nil
+    }
     
     // MARK: Properties
     private var player: AVPlayer!
@@ -183,6 +192,7 @@ extension VideoPlayerVC {
         _ = player.addPeriodicTimeObserver(forInterval: updateInterval, queue: DispatchQueue.main, using: { [weak self] time in
             guard let currentTime = self?.player.currentItem else { return }
             self?.seekSlider.maximumValue = Float(currentTime.duration.seconds)
+            self?.seekSlider.isUserInteractionEnabled = self?.seekSlider.maximumValue ?? 0.0 > 0.0
             self?.seekSlider.minimumValue = 0
             self?.seekSlider.value = Float(currentTime.currentTime().seconds)
             self?.timeElapsedLabel.text = currentTime.currentTime().formattedTimeForPlayerSeeker()
