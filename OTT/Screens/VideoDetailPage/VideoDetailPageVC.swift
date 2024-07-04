@@ -205,18 +205,18 @@ extension VideoDetailPageVC: VideoPlayerDelegate {
             debugPrint("Video is not part of videos: This case should never occur")
             return
         }
-        let previousIndex = selectedIndex - 1
+        var previousIndex = selectedIndex - 1
         if previousIndex >= 0 {
             selectedVideo = videos[previousIndex]
-            reloadScreenContent(videos: videos, selectedVideo: selectedVideo)
-            playVideo(video: selectedVideo)
         } else {
-            Utility.showAlert(
-                on: self,
-                title: Constants.AlertMessages.error,
-                message: Constants.AlertMessages.unableToFetchServerData,
-                options: [Constants.AlertMessages.ok]
-            )
+            previousIndex = videos.count-1
+            selectedVideo = videos[previousIndex]
+        }
+        
+        reloadScreenContent(videos: videos, selectedVideo: selectedVideo)
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+            self.playVideo(video: self.selectedVideo)
         }
     }
     
@@ -225,18 +225,18 @@ extension VideoDetailPageVC: VideoPlayerDelegate {
             debugPrint("Video is not part of videos: This case should never occur")
             return
         }
-        let nextIndex = selectedIndex + 1
+        var nextIndex = selectedIndex + 1
         if nextIndex < videos.count {
             selectedVideo = videos[nextIndex]
-            reloadScreenContent(videos: videos, selectedVideo: selectedVideo)
-            playVideo(video: selectedVideo)
         } else {
-            Utility.showAlert(
-                on: self,
-                title: Constants.AlertMessages.error,
-                message: Constants.AlertMessages.unableToFetchServerData,
-                options: [Constants.AlertMessages.ok]
-            )
+            nextIndex = 0
+            selectedVideo = videos[nextIndex]
+        }
+        
+        reloadScreenContent(videos: videos, selectedVideo: selectedVideo)
+        DispatchQueue.main.async {
+            self.navigationController?.popViewController(animated: true)
+            self.playVideo(video: self.selectedVideo)
         }
     }
     

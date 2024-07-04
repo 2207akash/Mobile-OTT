@@ -100,7 +100,6 @@ class VideoPlayerVC: UIViewController {
     }
     
     @IBAction func prevBtnTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
         delegate?.playPreviousVideoTapped()
     }
     
@@ -113,7 +112,6 @@ class VideoPlayerVC: UIViewController {
     }
     
     @IBAction func nextBtnTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
         delegate?.playNextVideoTapped()
     }
     
