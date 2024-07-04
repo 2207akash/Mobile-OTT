@@ -41,6 +41,7 @@ class VideoPlayerVC: UIViewController {
     private var player: AVPlayer!
     private var playerLayer: AVPlayerLayer!
     private var videoProgress: VideoProgress!
+    private let userDataManager = UserDataManager()
     private let videoProgressDataManager = VideoProgressDataManager()
     
     // MARK: Configuration Properties
@@ -172,7 +173,9 @@ extension VideoPlayerVC {
         if let videoProgress = videoProgressDataManager.getVideoProgressById(id: video.id) {
             self.videoProgress = videoProgress
         } else {
-            videoProgressDataManager.createVideoProgress(record: VideoProgress(pKey: UUID(), id: video.id, lastPlayedTime: 0))
+            let videoProgress = VideoProgress(pKey: UUID(), id: video.id, lastPlayedTime: 0)
+            videoProgressDataManager.createVideoProgress(record: videoProgress)
+            userDataManager.addVideoProgressRelationToUser(videoProgresses: [videoProgress], user: GLOBAL_USER!)
             self.videoProgress = videoProgressDataManager.getVideoProgressById(id: video.id)
         }
     }

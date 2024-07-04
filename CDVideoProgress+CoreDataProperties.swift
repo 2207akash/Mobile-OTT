@@ -19,6 +19,7 @@ extension CDVideoProgress {
     @NSManaged public var primaryKey: UUID?
     @NSManaged public var id: String?
     @NSManaged public var lastPlayedTime: Float
+    @NSManaged public var toUser: CDUser?
 
 }
 

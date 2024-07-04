@@ -63,8 +63,14 @@
 		75D8B6FA2C373AFC00D58521 /* VideoProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B6F92C373AFC00D58521 /* VideoProgress.swift */; };
 		75D8B7002C37415300D58521 /* CDVideoProgress+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B6FF2C37415300D58521 /* CDVideoProgress+Extension.swift */; };
 		75D8B7022C37445700D58521 /* VideoProgressDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B7012C37445700D58521 /* VideoProgressDataManager.swift */; };
-		75D8B7052C374AA900D58521 /* CDVideoProgress+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B7032C374AA900D58521 /* CDVideoProgress+CoreDataClass.swift */; };
-		75D8B7062C374AA900D58521 /* CDVideoProgress+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B7042C374AA900D58521 /* CDVideoProgress+CoreDataProperties.swift */; };
+		75D8B70B2C37654D00D58521 /* CDVideoProgress+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B7072C37654D00D58521 /* CDVideoProgress+CoreDataClass.swift */; };
+		75D8B70C2C37654D00D58521 /* CDVideoProgress+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B7082C37654D00D58521 /* CDVideoProgress+CoreDataProperties.swift */; };
+		75D8B7112C37657900D58521 /* CDUser+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B70F2C37657900D58521 /* CDUser+CoreDataClass.swift */; };
+		75D8B7122C37657900D58521 /* CDUser+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B7102C37657900D58521 /* CDUser+CoreDataProperties.swift */; };
+		75D8B7142C37659800D58521 /* UserDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B7132C37659800D58521 /* UserDataRepository.swift */; };
+		75D8B7162C3765BF00D58521 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B7152C3765BF00D58521 /* User.swift */; };
+		75D8B7182C3765C800D58521 /* CDUser+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B7172C3765C800D58521 /* CDUser+Extension.swift */; };
+		75D8B71A2C37662200D58521 /* UserDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B7192C37662200D58521 /* UserDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -125,8 +131,14 @@
 		75D8B6F92C373AFC00D58521 /* VideoProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProgress.swift; sourceTree = "<group>"; };
 		75D8B6FF2C37415300D58521 /* CDVideoProgress+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDVideoProgress+Extension.swift"; sourceTree = "<group>"; };
 		75D8B7012C37445700D58521 /* VideoProgressDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProgressDataManager.swift; sourceTree = "<group>"; };
-		75D8B7032C374AA900D58521 /* CDVideoProgress+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDVideoProgress+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		75D8B7042C374AA900D58521 /* CDVideoProgress+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDVideoProgress+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		75D8B7072C37654D00D58521 /* CDVideoProgress+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDVideoProgress+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		75D8B7082C37654D00D58521 /* CDVideoProgress+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDVideoProgress+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		75D8B70F2C37657900D58521 /* CDUser+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDUser+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		75D8B7102C37657900D58521 /* CDUser+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDUser+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		75D8B7132C37659800D58521 /* UserDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataRepository.swift; sourceTree = "<group>"; };
+		75D8B7152C3765BF00D58521 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		75D8B7172C3765C800D58521 /* CDUser+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDUser+Extension.swift"; sourceTree = "<group>"; };
+		75D8B7192C37662200D58521 /* UserDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,14 +180,6 @@
 				7526ED482C348A38005F9DDA /* DetailViewCategoryCell.xib */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		752C75A92C30C14700AFCA9B /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				752C75AA2C30C17500AFCA9B /* HomeVideos.json */,
-			);
-			path = JSON;
 			sourceTree = "<group>";
 		};
 		752C75AC2C315DE600AFCA9B /* Featured */ = {
@@ -255,6 +259,7 @@
 		75473EAD2C2F5D12000BF1B1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				752C75AA2C30C17500AFCA9B /* HomeVideos.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -334,7 +339,6 @@
 		75473EC02C2FD450000BF1B1 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				752C75A92C30C14700AFCA9B /* JSON */,
 				75473F512C303958000BF1B1 /* Models */,
 				75473F552C304152000BF1B1 /* Cells */,
 				75473EC32C2FD5A0000BF1B1 /* HomeVC.swift */,
@@ -400,8 +404,10 @@
 		75D8B6E82C37220300D58521 /* CDModels */ = {
 			isa = PBXGroup;
 			children = (
-				75D8B7032C374AA900D58521 /* CDVideoProgress+CoreDataClass.swift */,
-				75D8B7042C374AA900D58521 /* CDVideoProgress+CoreDataProperties.swift */,
+				75D8B70F2C37657900D58521 /* CDUser+CoreDataClass.swift */,
+				75D8B7102C37657900D58521 /* CDUser+CoreDataProperties.swift */,
+				75D8B7072C37654D00D58521 /* CDVideoProgress+CoreDataClass.swift */,
+				75D8B7082C37654D00D58521 /* CDVideoProgress+CoreDataProperties.swift */,
 			);
 			path = CDModels;
 			sourceTree = "<group>";
@@ -411,6 +417,7 @@
 			children = (
 				75D8B6F52C37234C00D58521 /* BaseRepository.swift */,
 				75D8B6F72C373AD600D58521 /* VideoProgressDataRepository.swift */,
+				75D8B7132C37659800D58521 /* UserDataRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -419,6 +426,7 @@
 			isa = PBXGroup;
 			children = (
 				75D8B7012C37445700D58521 /* VideoProgressDataManager.swift */,
+				75D8B7192C37662200D58521 /* UserDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -427,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				75D8B6F92C373AFC00D58521 /* VideoProgress.swift */,
+				75D8B7152C3765BF00D58521 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -435,6 +444,7 @@
 			isa = PBXGroup;
 			children = (
 				75D8B6FF2C37415300D58521 /* CDVideoProgress+Extension.swift */,
+				75D8B7172C3765C800D58521 /* CDUser+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -527,8 +537,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75D8B71A2C37662200D58521 /* UserDataManager.swift in Sources */,
 				75473F652C304263000BF1B1 /* FSPageViewLayout.swift in Sources */,
 				75473F662C304263000BF1B1 /* FSPageControl.swift in Sources */,
+				75D8B7162C3765BF00D58521 /* User.swift in Sources */,
 				75473EBB2C2F5E7D000BF1B1 /* UIView+Shadow.swift in Sources */,
 				7526ED492C348A38005F9DDA /* DetailViewCategoryCell.swift in Sources */,
 				752C75B42C3167D400AFCA9B /* HomeVideoFeaturedSectionCell.swift in Sources */,
@@ -541,6 +553,8 @@
 				75473E9B2C2F5651000BF1B1 /* LoginVC.swift in Sources */,
 				752C759D2C307A7600AFCA9B /* UIImageView+Download.swift in Sources */,
 				75D8B7002C37415300D58521 /* CDVideoProgress+Extension.swift in Sources */,
+				75D8B7182C3765C800D58521 /* CDUser+Extension.swift in Sources */,
+				75D8B7142C37659800D58521 /* UserDataRepository.swift in Sources */,
 				752C75A22C309A5F00AFCA9B /* VideoDetailPageVC.swift in Sources */,
 				75473F612C304263000BF1B1 /* FSPagerView.swift in Sources */,
 				75473E972C2F5651000BF1B1 /* AppDelegate.swift in Sources */,
@@ -548,12 +562,13 @@
 				752C75B02C315EE300AFCA9B /* HomeVideoCategorySectionCell.swift in Sources */,
 				75473F6F2C304412000BF1B1 /* VideoPlayerVC.swift in Sources */,
 				75D8B7022C37445700D58521 /* VideoProgressDataManager.swift in Sources */,
-				75D8B7052C374AA900D58521 /* CDVideoProgress+CoreDataClass.swift in Sources */,
+				75D8B70B2C37654D00D58521 /* CDVideoProgress+CoreDataClass.swift in Sources */,
 				75473F502C3029B6000BF1B1 /* Utility.swift in Sources */,
+				75D8B7112C37657900D58521 /* CDUser+CoreDataClass.swift in Sources */,
 				75D8B6F82C373AD600D58521 /* VideoProgressDataRepository.swift in Sources */,
 				75473F4E2C302058000BF1B1 /* JSONParser.swift in Sources */,
 				752C75972C3078B200AFCA9B /* HomeVideoThumbCollectionViewCell.swift in Sources */,
-				75D8B7062C374AA900D58521 /* CDVideoProgress+CoreDataProperties.swift in Sources */,
+				75D8B70C2C37654D00D58521 /* CDVideoProgress+CoreDataProperties.swift in Sources */,
 				752C75BA2C31880C00AFCA9B /* HomeVideoSectionHeader.swift in Sources */,
 				75473EC42C2FD5A0000BF1B1 /* HomeVC.swift in Sources */,
 				75473F622C304263000BF1B1 /* FSPageViewTransformer.swift in Sources */,
@@ -562,6 +577,7 @@
 				752C75BE2C32078000AFCA9B /* CMTime+Formatting.swift in Sources */,
 				75473F642C304263000BF1B1 /* FSPagerViewLayoutAttributes.swift in Sources */,
 				752C759A2C307A4600AFCA9B /* ImageCache.swift in Sources */,
+				75D8B7122C37657900D58521 /* CDUser+CoreDataProperties.swift in Sources */,
 				75473EBF2C2FD407000BF1B1 /* PersistentStorage.swift in Sources */,
 				75473EA12C2F5651000BF1B1 /* OTT.xcdatamodeld in Sources */,
 				75D8B6FA2C373AFC00D58521 /* VideoProgress.swift in Sources */,
