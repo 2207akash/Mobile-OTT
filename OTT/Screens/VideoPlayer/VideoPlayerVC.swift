@@ -30,6 +30,7 @@ class VideoPlayerVC: UIViewController {
     deinit {
         // Remove observers
         player.currentItem?.removeObserver(self, forKeyPath: "duration")
+        NotificationCenter.default.removeObserver(self)
         
         // Release player and layer (if necessary)
         player = nil
@@ -157,6 +158,8 @@ extension VideoPlayerVC {
         player = AVPlayer(url: videoURL)
         
         player.currentItem?.addObserver(self, forKeyPath: "duration", options: [.new, .initial], context: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(videoDidEnded), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
+        
         updateElapsedTimeObserver()
         
         playerLayer = AVPlayerLayer(player: player)
@@ -185,6 +188,10 @@ extension VideoPlayerVC {
         if keyPath == "duration", let duration = player.currentItem?.duration, duration.seconds > 0.0 {
             self.totalTimeLabel.text = duration.formattedTimeForPlayerSeeker()
         }
+    }
+    
+    @objc private func videoDidEnded() {
+        delegate?.playNextVideoTapped()
     }
     
     private func updateElapsedTimeObserver() {
