@@ -8,17 +8,21 @@
 import UIKit
 import GoogleSignIn
 
+var GLOBAL_USER: User?
+
 class LoginVC: UIViewController {
     
     // MARK: IBOutlets
     @IBOutlet weak var googleSignInBtn: GIDSignInButton!
+    
+    // MARK: Properties
+    private let userDataManager = UserDataManager()
     
     
     // MARK: VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.showHomeVC()
         setupView()
     }
     
@@ -40,11 +44,22 @@ class LoginVC: UIViewController {
 extension LoginVC {
     
     @objc private func signInWithGoogleTapped() {
-        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
-            guard let _ = signInResult else {
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [weak self] signInResult, error in
+            guard let signInResult = signInResult else {
                 return
             }
-            self.showHomeVC()
+            if let userEmail = signInResult.user.userID {
+                if let user = self?.userDataManager.getUserByEmail(email: userEmail) {
+                    GLOBAL_USER = user
+                } else {
+                    let user = User(pKey: UUID(), email: userEmail)
+                    self?.userDataManager.createUser(record: user)
+                    GLOBAL_USER = user
+                }
+                self?.showHomeVC()
+            } else {
+                debugPrint("Warning: Couldn't fetch user email from Google Sign In")
+            }
         }
     }
     
