@@ -40,6 +40,8 @@ class VideoPlayerVC: UIViewController {
     // MARK: Properties
     private var player: AVPlayer!
     private var playerLayer: AVPlayerLayer!
+    private var videoProgress: VideoProgress!
+    private let videoProgressDataManager = VideoProgressDataManager()
     
     // MARK: Configuration Properties
     private var isPlaying = false {
@@ -139,21 +141,14 @@ class VideoPlayerVC: UIViewController {
 extension VideoPlayerVC {
     
     private func setupUI() {
-        titleLabel.text = video?.title
-        guard let videoURLString = video?.url else {
+        guard let video = video, let videoURL = URL(string: video.url) else {
             Utility.showAlert(on: self, title: Constants.AlertMessages.unableToFetchServerData, message: Constants.AlertMessages.unableToFetchServerData, options: [Constants.AlertMessages.ok]) { _ in
                 self.navigationController?.popViewController(animated: true)
             }
             return
         }
         
-        // Ensure the URL is valid
-        guard let videoURL = URL(string: videoURLString) else {
-            Utility.showAlert(on: self, title: Constants.AlertMessages.unableToFetchServerData, message: Constants.AlertMessages.unableToFetchServerData, options: [Constants.AlertMessages.ok]) { _ in
-                self.navigationController?.popViewController(animated: true)
-            }
-            return
-        }
+        initializeVideoProgressObject(video: video)
         
         player = AVPlayer(url: videoURL)
         
@@ -167,8 +162,18 @@ extension VideoPlayerVC {
         
         videoPlayerView.layer.addSublayer(playerLayer)
         
+        titleLabel.text = video.title
         DispatchQueue.main.asyncAfter(deadline: .now()+5.0) {
             self.overlayView.isHidden = true
+        }
+    }
+    
+    private func initializeVideoProgressObject(video: Video) {
+        if let videoProgress = videoProgressDataManager.getVideoProgressById(id: video.id) {
+            self.videoProgress = videoProgress
+        } else {
+            videoProgressDataManager.createVideoProgress(record: VideoProgress(pKey: UUID(), id: video.id, lastPlayedTime: 0))
+            self.videoProgress = videoProgressDataManager.getVideoProgressById(id: video.id)
         }
     }
     
@@ -195,13 +200,28 @@ extension VideoPlayerVC {
     }
     
     private func updateElapsedTimeObserver() {
+        var isLastPlayTimeSetOnce = false
+        
         let updateInterval = CMTime(seconds: 0.5, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         _ = player.addPeriodicTimeObserver(forInterval: updateInterval, queue: DispatchQueue.main, using: { [weak self] time in
             guard let currentTime = self?.player.currentItem else { return }
-            self?.seekSlider.maximumValue = Float(currentTime.duration.seconds)
-            self?.seekSlider.isUserInteractionEnabled = self?.seekSlider.maximumValue ?? 0.0 > 0.0
+            let currentTimeInSeconds = Float(currentTime.currentTime().seconds)
+            
             self?.seekSlider.minimumValue = 0
-            self?.seekSlider.value = Float(currentTime.currentTime().seconds)
+            self?.seekSlider.maximumValue = Float(currentTime.duration.seconds)
+            
+            if !isLastPlayTimeSetOnce, let savedTime = self?.videoProgress.lastPlayedTime, savedTime > 0 {
+                self?.player.seek(to: CMTimeMake(value: Int64(savedTime * 1000), timescale: 1000))
+                isLastPlayTimeSetOnce = true
+            } else {
+                self?.seekSlider.isUserInteractionEnabled = self?.seekSlider.maximumValue ?? 0.0 > 0.0
+                self?.videoProgress.lastPlayedTime = currentTimeInSeconds
+                if let videoProgress = self?.videoProgress {
+                    _ = self?.videoProgressDataManager.update(record: videoProgress)
+                }
+                self?.seekSlider.value = currentTimeInSeconds
+            }
+            
             self?.timeElapsedLabel.text = currentTime.currentTime().formattedTimeForPlayerSeeker()
         })
     }

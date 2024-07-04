@@ -38,7 +38,7 @@
 		75473EB32C2F5D88000BF1B1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75473EB22C2F5D88000BF1B1 /* NetworkManager.swift */; };
 		75473EB82C2F5DDF000BF1B1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75473EB72C2F5DDF000BF1B1 /* Constants.swift */; };
 		75473EBB2C2F5E7D000BF1B1 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75473EBA2C2F5E7D000BF1B1 /* UIView+Shadow.swift */; };
-		75473EBF2C2FD407000BF1B1 /* PersistenceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75473EBE2C2FD407000BF1B1 /* PersistenceStorage.swift */; };
+		75473EBF2C2FD407000BF1B1 /* PersistentStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75473EBE2C2FD407000BF1B1 /* PersistentStorage.swift */; };
 		75473EC22C2FD50E000BF1B1 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75473EC12C2FD50E000BF1B1 /* Home.storyboard */; };
 		75473EC42C2FD5A0000BF1B1 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75473EC32C2FD5A0000BF1B1 /* HomeVC.swift */; };
 		75473F132C301FC0000BF1B1 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 75473F122C301FC0000BF1B1 /* GoogleSignIn */; };
@@ -58,6 +58,13 @@
 		75473F6C2C3042D8000BF1B1 /* HomeFeaturedPagerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75473F6A2C3042D8000BF1B1 /* HomeFeaturedPagerViewCell.xib */; };
 		75473F6F2C304412000BF1B1 /* VideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75473F6E2C304412000BF1B1 /* VideoPlayerVC.swift */; };
 		75473F712C30441F000BF1B1 /* VideoPlayer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75473F702C30441F000BF1B1 /* VideoPlayer.storyboard */; };
+		75D8B6F62C37234C00D58521 /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B6F52C37234C00D58521 /* BaseRepository.swift */; };
+		75D8B6F82C373AD600D58521 /* VideoProgressDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B6F72C373AD600D58521 /* VideoProgressDataRepository.swift */; };
+		75D8B6FA2C373AFC00D58521 /* VideoProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B6F92C373AFC00D58521 /* VideoProgress.swift */; };
+		75D8B7002C37415300D58521 /* CDVideoProgress+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B6FF2C37415300D58521 /* CDVideoProgress+Extension.swift */; };
+		75D8B7022C37445700D58521 /* VideoProgressDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B7012C37445700D58521 /* VideoProgressDataManager.swift */; };
+		75D8B7052C374AA900D58521 /* CDVideoProgress+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B7032C374AA900D58521 /* CDVideoProgress+CoreDataClass.swift */; };
+		75D8B7062C374AA900D58521 /* CDVideoProgress+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B7042C374AA900D58521 /* CDVideoProgress+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,7 +101,7 @@
 		75473EB22C2F5D88000BF1B1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		75473EB72C2F5DDF000BF1B1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		75473EBA2C2F5E7D000BF1B1 /* UIView+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
-		75473EBE2C2FD407000BF1B1 /* PersistenceStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorage.swift; sourceTree = "<group>"; };
+		75473EBE2C2FD407000BF1B1 /* PersistentStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStorage.swift; sourceTree = "<group>"; };
 		75473EC12C2FD50E000BF1B1 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		75473EC32C2FD5A0000BF1B1 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		75473F4D2C302058000BF1B1 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
@@ -113,6 +120,13 @@
 		75473F6A2C3042D8000BF1B1 /* HomeFeaturedPagerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeFeaturedPagerViewCell.xib; sourceTree = "<group>"; };
 		75473F6E2C304412000BF1B1 /* VideoPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVC.swift; sourceTree = "<group>"; };
 		75473F702C30441F000BF1B1 /* VideoPlayer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoPlayer.storyboard; sourceTree = "<group>"; };
+		75D8B6F52C37234C00D58521 /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
+		75D8B6F72C373AD600D58521 /* VideoProgressDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProgressDataRepository.swift; sourceTree = "<group>"; };
+		75D8B6F92C373AFC00D58521 /* VideoProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProgress.swift; sourceTree = "<group>"; };
+		75D8B6FF2C37415300D58521 /* CDVideoProgress+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDVideoProgress+Extension.swift"; sourceTree = "<group>"; };
+		75D8B7012C37445700D58521 /* VideoProgressDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoProgressDataManager.swift; sourceTree = "<group>"; };
+		75D8B7032C374AA900D58521 /* CDVideoProgress+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDVideoProgress+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		75D8B7042C374AA900D58521 /* CDVideoProgress+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDVideoProgress+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,7 +320,12 @@
 		75473EBD2C2FD3DE000BF1B1 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				75473EBE2C2FD407000BF1B1 /* PersistenceStorage.swift */,
+				75D8B6EC2C37222100D58521 /* Extensions */,
+				75D8B6EB2C37221E00D58521 /* Models */,
+				75D8B6EA2C37221500D58521 /* Managers */,
+				75D8B6E92C37220F00D58521 /* Repository */,
+				75D8B6E82C37220300D58521 /* CDModels */,
+				75473EBE2C2FD407000BF1B1 /* PersistentStorage.swift */,
 				75473E9F2C2F5651000BF1B1 /* OTT.xcdatamodeld */,
 			);
 			path = Database;
@@ -376,6 +395,48 @@
 				7526ED4E2C34C4F0005F9DDA /* VideoPlayerDelegate.swift */,
 			);
 			path = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		75D8B6E82C37220300D58521 /* CDModels */ = {
+			isa = PBXGroup;
+			children = (
+				75D8B7032C374AA900D58521 /* CDVideoProgress+CoreDataClass.swift */,
+				75D8B7042C374AA900D58521 /* CDVideoProgress+CoreDataProperties.swift */,
+			);
+			path = CDModels;
+			sourceTree = "<group>";
+		};
+		75D8B6E92C37220F00D58521 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				75D8B6F52C37234C00D58521 /* BaseRepository.swift */,
+				75D8B6F72C373AD600D58521 /* VideoProgressDataRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		75D8B6EA2C37221500D58521 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				75D8B7012C37445700D58521 /* VideoProgressDataManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		75D8B6EB2C37221E00D58521 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				75D8B6F92C373AFC00D58521 /* VideoProgress.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		75D8B6EC2C37222100D58521 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				75D8B6FF2C37415300D58521 /* CDVideoProgress+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -479,14 +540,20 @@
 				7526ED452C347D5A005F9DDA /* MovieTagCell.swift in Sources */,
 				75473E9B2C2F5651000BF1B1 /* LoginVC.swift in Sources */,
 				752C759D2C307A7600AFCA9B /* UIImageView+Download.swift in Sources */,
+				75D8B7002C37415300D58521 /* CDVideoProgress+Extension.swift in Sources */,
 				752C75A22C309A5F00AFCA9B /* VideoDetailPageVC.swift in Sources */,
 				75473F612C304263000BF1B1 /* FSPagerView.swift in Sources */,
 				75473E972C2F5651000BF1B1 /* AppDelegate.swift in Sources */,
+				75D8B6F62C37234C00D58521 /* BaseRepository.swift in Sources */,
 				752C75B02C315EE300AFCA9B /* HomeVideoCategorySectionCell.swift in Sources */,
 				75473F6F2C304412000BF1B1 /* VideoPlayerVC.swift in Sources */,
+				75D8B7022C37445700D58521 /* VideoProgressDataManager.swift in Sources */,
+				75D8B7052C374AA900D58521 /* CDVideoProgress+CoreDataClass.swift in Sources */,
 				75473F502C3029B6000BF1B1 /* Utility.swift in Sources */,
+				75D8B6F82C373AD600D58521 /* VideoProgressDataRepository.swift in Sources */,
 				75473F4E2C302058000BF1B1 /* JSONParser.swift in Sources */,
 				752C75972C3078B200AFCA9B /* HomeVideoThumbCollectionViewCell.swift in Sources */,
+				75D8B7062C374AA900D58521 /* CDVideoProgress+CoreDataProperties.swift in Sources */,
 				752C75BA2C31880C00AFCA9B /* HomeVideoSectionHeader.swift in Sources */,
 				75473EC42C2FD5A0000BF1B1 /* HomeVC.swift in Sources */,
 				75473F622C304263000BF1B1 /* FSPageViewTransformer.swift in Sources */,
@@ -495,8 +562,9 @@
 				752C75BE2C32078000AFCA9B /* CMTime+Formatting.swift in Sources */,
 				75473F642C304263000BF1B1 /* FSPagerViewLayoutAttributes.swift in Sources */,
 				752C759A2C307A4600AFCA9B /* ImageCache.swift in Sources */,
-				75473EBF2C2FD407000BF1B1 /* PersistenceStorage.swift in Sources */,
+				75473EBF2C2FD407000BF1B1 /* PersistentStorage.swift in Sources */,
 				75473EA12C2F5651000BF1B1 /* OTT.xcdatamodeld in Sources */,
+				75D8B6FA2C373AFC00D58521 /* VideoProgress.swift in Sources */,
 				752C75B72C3185A900AFCA9B /* HomeVideoListSection.swift in Sources */,
 				75473F682C304263000BF1B1 /* FSPagerCollectionView.swift in Sources */,
 				75473F672C304263000BF1B1 /* FSPagerViewObjcCompat.m in Sources */,
